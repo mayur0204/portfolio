@@ -1,0 +1,229 @@
+.intro {
+  padding-top: calc(var(--nav-h) + clamp(20px, 3vw, 40px));
+  padding-bottom: clamp(40px, 6vw, 72px);
+  position: relative;
+}
+
+.intro__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(12px, 2vw, 28px);
+  align-items: start;
+}
+
+/* meta strip */
+.intro__meta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+  animation: intro-fade 0.8s var(--ease) both;
+}
+.intro__status {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.intro__status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+}
+
+/* name */
+.intro__name {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(4rem, 23.5vw, 21rem);
+  line-height: 0.8;
+  letter-spacing: -0.055em;
+  margin-top: clamp(18px, 3vw, 36px);
+  margin-left: -0.04em;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+.intro__char {
+  display: inline-block;
+  animation: intro-char 1s var(--ease) both;
+  animation-delay: calc(120ms + var(--i) * 70ms);
+}
+@keyframes intro-char {
+  from {
+    transform: translateY(102%);
+  }
+}
+.intro__square {
+  width: 0.12em;
+  height: 0.12em;
+  background: var(--accent);
+  margin-left: 0.06em;
+  margin-bottom: 0.06em;
+  flex-shrink: 0;
+  animation: intro-square 0.6s var(--ease) 0.75s both;
+}
+@keyframes intro-square {
+  from {
+    transform: scale(0);
+  }
+}
+
+.intro__line {
+  grid-column: 1 / -1;
+  height: 2px;
+  background: var(--ink);
+  margin-top: clamp(14px, 2vw, 22px);
+  transform-origin: left;
+  animation: intro-line 1.3s var(--ease-in-out) 0.35s both;
+}
+@keyframes intro-line {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* headline + aside */
+.intro__headline {
+  grid-column: 1 / span 7;
+  margin-top: clamp(24px, 4vw, 48px);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 4.3vw, 3.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  animation: intro-fade 0.9s var(--ease) 0.55s both;
+}
+.intro__aside {
+  grid-column: 9 / -1;
+  margin-top: clamp(24px, 4vw, 48px);
+  display: grid;
+  gap: 22px;
+  animation: intro-fade 0.9s var(--ease) 0.7s both;
+}
+.intro__text {
+  font-size: 1.02rem;
+  color: var(--ink-2);
+  max-width: 40ch;
+}
+.intro__now {
+  display: grid;
+  gap: 4px;
+}
+
+.rotator {
+  display: block;
+  height: 1.3em;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.8rem;
+  line-height: 1.3;
+  color: var(--accent-deep);
+}
+.rotator__word {
+  display: block;
+  animation: rotator-in 0.55s var(--ease) both;
+}
+@keyframes rotator-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* project index */
+.intro__index {
+  grid-column: 1 / span 7;
+  margin-top: clamp(36px, 5vw, 64px);
+  animation: intro-fade 0.9s var(--ease) 0.85s both;
+}
+.intro__index ol {
+  margin-top: 10px;
+  border-top: 1px solid var(--rule);
+}
+.intro__index li {
+  border-bottom: 1px solid var(--rule);
+}
+.intro__index button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3.2em 1fr auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: padding var(--fast) var(--ease);
+}
+.intro__index button:hover {
+  padding-left: 8px;
+}
+.intro__index-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+/* scroll cue */
+.intro__scroll {
+  grid-column: 9 / -1;
+  align-self: end;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 40px;
+  animation: intro-fade 0.9s var(--ease) 1s both;
+}
+.intro__scroll-track {
+  position: relative;
+  width: 1px;
+  height: 56px;
+  background: var(--rule);
+  overflow: hidden;
+}
+.intro__scroll-bar {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  animation: scroll-cue 2s var(--ease-in-out) infinite;
+}
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+.intro__scroll:hover .label {
+  color: var(--ink);
+}
+
+@keyframes intro-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (max-width: 900px) {
+  .intro__headline,
+  .intro__aside,
+  .intro__index,
+  .intro__scroll {
+    grid-column: 1 / -1;
+  }
+  .intro__status {
+    margin-left: 0;
+  }
+}

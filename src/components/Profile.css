@@ -1,0 +1,72 @@
+.profile__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(12px, 2vw, 28px);
+  row-gap: 48px;
+}
+.profile__text {
+  grid-column: 1 / span 7;
+  display: grid;
+  gap: 24px;
+}
+.profile__lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+.profile__lead::first-letter {
+  color: var(--accent);
+}
+.profile__para {
+  font-size: 1.05rem;
+  color: var(--ink-2);
+  max-width: 56ch;
+}
+
+.profile__facts {
+  grid-column: 9 / -1;
+  border-top: 1px solid var(--ink);
+}
+.profile__fact {
+  padding-block: 14px;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  gap: 6px;
+}
+.profile__fact dd {
+  font-size: 1rem;
+}
+.profile__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.profile__focus li {
+  padding-left: 16px;
+  position: relative;
+}
+.profile__focus li + li {
+  margin-top: 4px;
+}
+.profile__focus li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--ink-3);
+}
+
+.profile__dev {
+  margin-top: 28px;
+  padding: 10px 12px;
+  border: 1px dashed var(--ink-3);
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .profile__text,
+  .profile__facts {
+    grid-column: 1 / -1;
+  }
+}

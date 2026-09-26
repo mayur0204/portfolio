@@ -1,0 +1,40 @@
+.journey__list {
+  border-top: 1px solid var(--ink);
+}
+.journey__row {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr) minmax(0, 7fr);
+  gap: 10px clamp(12px, 2vw, 28px);
+  align-items: baseline;
+  padding-block: clamp(18px, 2.6vw, 30px);
+  border-bottom: 1px solid var(--rule);
+}
+.journey__year {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1;
+  transition: color var(--fast);
+}
+.journey__year .ph {
+  font-size: 0.8rem;
+  vertical-align: middle;
+}
+.journey__row:hover .journey__year {
+  color: var(--accent);
+}
+.journey__tag {
+  color: var(--ink);
+}
+.journey__text {
+  font-size: 1.1rem;
+  max-width: 52ch;
+}
+
+@media (max-width: 700px) {
+  .journey__row {
+    grid-template-columns: auto 1fr;
+  }
+  .journey__text {
+    grid-column: 1 / -1;
+  }
+}

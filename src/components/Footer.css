@@ -1,0 +1,14 @@
+.footer {
+  margin-top: clamp(72px, 10vw, 140px);
+  border-top: 1px solid var(--ink);
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-block: 22px 28px;
+}
+.footer__top {
+  color: var(--ink);
+}

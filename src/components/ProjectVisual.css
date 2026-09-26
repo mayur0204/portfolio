@@ -1,0 +1,72 @@
+.pv {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+
+.pv-pop {
+  animation: pv-pop 0.6s var(--ease) both;
+  animation-delay: var(--pv-d, 0s);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes pv-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+}
+
+.pv-slide {
+  animation: pv-slide 7s var(--ease-in-out) infinite;
+}
+@keyframes pv-slide {
+  0%,
+  22% {
+    transform: translateX(0);
+  }
+  33%,
+  55% {
+    transform: translateX(-88px);
+  }
+  66%,
+  88% {
+    transform: translateX(-176px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.pv-dash {
+  animation: pv-dash 1.6s linear infinite;
+}
+@keyframes pv-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.pv-car {
+  offset-rotate: auto;
+  animation: pv-car 5s var(--ease-in-out) infinite;
+}
+@keyframes pv-car {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-slide,
+  .pv-dash,
+  .pv-car {
+    animation: none !important;
+  }
+  .pv-car {
+    offset-distance: 45%;
+  }
+}
